@@ -1,4 +1,8 @@
 import React from 'react';
+import ItemDetail from '../items/item_detail';
+import Item from '../items/item';
+import ItemDetailContainer from '../items/item_detail_container';
+import { Route } from 'react-router-dom';
 
 class PokemonDetail extends React.Component {
   constructor(props) {
@@ -18,21 +22,28 @@ class PokemonDetail extends React.Component {
 
   render() {
     const poke = this.props.pokemon;
-    console.log(this.props);
+    let items;
 
     if (!poke) {
       return null;
+    } else {
+      items = this.props.pokemon.items.map(item => <Item item={item} key={item.name}/>);
     }
 
     return (
-      <ul>
-        <li><img src={poke.image_url}/></li>
-        <li>{poke.name}</li>
-        <li>Type: {poke.poke_type}</li>
-        <li>Attack: {poke.attack}</li>
-        <li>Defense: {poke.defense}</li>
-        <li>Moves: {poke.moves}</li>
-      </ul>
+      <section>
+        <ul>
+          <li><img src={poke.image_url}/></li>
+          <li>{poke.name}</li>
+          <li>Type: {poke.poke_type}</li>
+          <li>Attack: {poke.attack}</li>
+          <li>Defense: {poke.defense}</li>
+          <li>Moves: {poke.moves.join(", ")}</li>
+          <li>Items: {items}
+          </li>
+        </ul>
+        <Route path="/pokemon/:pokemonId/item/:itemId" component={ItemDetailContainer} />
+      </section>
     );
   }
 }
