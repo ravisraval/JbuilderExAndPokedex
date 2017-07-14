@@ -6,7 +6,7 @@ const defaultState = {
   currentPokeId: null
 };
 const pokemonReducer = (state = defaultState, action) => {
-  
+
   Object.freeze(state);
   let newState;
 
@@ -16,7 +16,6 @@ const pokemonReducer = (state = defaultState, action) => {
       newState = merge({}, state, { entities: action.pokemon } );
       return newState;
     case "RECEIVE_ONE_POKEMON":
-      console.log(action);
       return merge({}, state, { currentPokeId: action.pokemon.poke.id } );
     default:
       return state;

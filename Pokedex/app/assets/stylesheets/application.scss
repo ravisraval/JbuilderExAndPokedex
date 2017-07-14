@@ -25,6 +25,27 @@ body {
   color: $grey;
   font-size: 12px;
   height: 100%;
+
+  img {
+    width: 50px;
+  }
+}
+
+li {
+  margin: 15px;
+}
+
+.detail {
+  border: 20px solid gold;
+  display: flex;
+  justify-content: center;
+  img {
+    align-items: center;
+  }
+  .poke_img {
+    align-self: center;
+    justify-content: center;
+  }
 }
 
 header {

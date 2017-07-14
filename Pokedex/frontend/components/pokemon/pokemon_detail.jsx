@@ -31,10 +31,10 @@ class PokemonDetail extends React.Component {
     }
 
     return (
-      <section>
+      <section className="detail">
+        <img className="poke_img" src={poke.image_url}/>
+        <h3>{poke.name}</h3>
         <ul>
-          <li><img src={poke.image_url}/></li>
-          <li>{poke.name}</li>
           <li>Type: {poke.poke_type}</li>
           <li>Attack: {poke.attack}</li>
           <li>Defense: {poke.defense}</li>
